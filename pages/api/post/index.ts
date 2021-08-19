@@ -6,11 +6,6 @@ import prisma from "../../../lib/prisma";
 // Optional fields in body: content
 export default async function handle(req, res) {
   const { title, content } = req.body;
-  var ip =
-    req.headers["x-forwarded-for"] ||
-    req.connection.remoteAddress ||
-    req.socket.remoteAddress ||
-    req.connection.socket.remoteAddress;
   const session = await getSession({ req });
   const result = await prisma.post.create({
     data: {
@@ -19,5 +14,5 @@ export default async function handle(req, res) {
       author: { connect: { email: session?.user?.email } },
     },
   });
-  res.json(ip);
+  res.json(result);
 }
