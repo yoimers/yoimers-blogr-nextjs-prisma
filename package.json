@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start"
   },
@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^2.29.1",
+    "cors": "^2.8.5",
     "next": "9.5.5",
     "next-auth": "^3.28.0",
     "react": "16.14.0",
